@@ -1,6 +1,5 @@
-function getResponseFromAPI() {
-  return new Primise((resolve, reject) => {
-    resolve();
-    reject();
+export default function getResponseFromAPI() {
+  return new Promise((resolve) => {
+    resolve('true');
   });
 }
