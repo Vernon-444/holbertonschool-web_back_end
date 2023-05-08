@@ -3,5 +3,5 @@
 
 
 def floor(num: float) -> int:
-  """return num as int, floor func"""
-  return int(num)
+    """return num as int, floor func"""
+    return int(num)
