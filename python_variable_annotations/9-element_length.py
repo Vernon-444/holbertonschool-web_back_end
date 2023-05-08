@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""annotate functions params and return values with appropraite types"""
+"""annotate functions params and
+return values with appropraite types"""
 from typing import Iterable, Sequence, List, Tuple
 
 
