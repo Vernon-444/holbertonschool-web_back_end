@@ -2,9 +2,9 @@
 """Takes a list mxd_lst of floats as arg,
 returns their sums as a float
 """
-from typing import List
+from typing import List, Union
 
 
-def sum_mixed_list(mxd_lst: List[float]) -> float:
-    """ return the sum of the list """
-    return float(sum((mxd_lst)))
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
+    """ sum floats and ints """
+    return sum(mxd_lst)
