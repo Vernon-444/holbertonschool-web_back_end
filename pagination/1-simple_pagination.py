@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+"""Documentation goes everywhere and is very importatnt"""
 import csv
 import math
 from typing import List, Tuple
-"""Documentation goes everywhere and is very importatnt"""
 
 
 class Server:
