@@ -24,17 +24,6 @@ class Server:
 
         return self.__dataset
 
-    def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """Returns a tuple of size two containing
-    a start and end index corresponding to
-    the range of the indexes to return in a
-    list for those particular pagination params
-    """
-    start = (page - 1) * page_size
-    end = start + page_size
-    return start, end
-
-
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """use index_range to find correct indexes to paginate
         the dataset corrrectly and return the appropriate page
@@ -44,3 +33,14 @@ class Server:
 
         start, end = index_range(page, page_size)
         return self.dataset()[start:end]
+
+
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """Returns a tuple of size two containing
+    a start and end index corresponding to
+    the range of the indexes to return in a
+    list for those particular pagination params
+    """
+    start = (page - 1) * page_size
+    end = start + page_size
+    return start, end
