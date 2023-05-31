@@ -1,29 +1,43 @@
 #!/usr/bin/env python3
-"""holds an auth class"""
+"""Module containing basic API authentication
+"""
 from flask import request
 from typing import List, TypeVar
-import os.path
+import os
 
 
-class Auth():
-    """an authorization class"""
+class Auth:
+    """Class used for basic authentication
+    """
+    def __init__(self):
+        pass
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """checks to see if path is in excluded_paths"""
-        if not path or not excluded_paths:
+        """Returns False
+        """
+        if path is None:
             return True
-        if os.path.join(path, '') in excluded_paths:
+        if excluded_paths is None or excluded_paths == []:
+            return True
+
+        if path in excluded_paths or path + '/' in excluded_paths:
             return False
         return True
 
     def authorization_header(self, request=None) -> str:
-        """returns the authorization header from the request"""
-        if not request:
-            return None
-        if 'Authorization' not in request.headers:
-            return None
+        """validates all requests to secure the API.
+        """
+        if request is None or 'Authorization' not in request.headers:
+            return
         return request.headers['Authorization']
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """user user user"""
+        """Returns a User object
+        """
         return None
+
+    def session_cookie(self, request=None):
+        """Retrieves the value of the session cookie from the request."""
+        if request is None:
+            return None
+        return request.cookies.get(os.getenv("SESSION_NAME"))
