@@ -31,4 +31,3 @@ def get_locale():
 
 if __name__ == '__main__':
     app.run()
-    
